@@ -5,8 +5,8 @@ export default function Timer() {
   const [name, setName] = useState('');
 
   //Because of the empty dependency array, useEffect will be
-  //run only once. useEffect will call the effect on the initial render and again
-  //when the component is unmounted (the cleanup function).
+  //run only once. useEffect will call the effect on the initial render (only once)
+  //and the cleanup function when the component is unmounted.
   //this results in setInterval being created only once which
   //continues to run until the component is unmounted where
   //the cleanup function terminates the setInterval() function.
@@ -17,7 +17,6 @@ export default function Timer() {
   //possible 'name' if typed in.
 
   useEffect(() => {
-
     const intervalId = setInterval(() => {
       const date = new Date();
       setTime(date.toLocaleTimeString());
